@@ -1,0 +1,11 @@
+---
+description: Lead Generation Agent MVP constraints
+globs:
+  - "**/*"
+---
+
+Follow PROTOCOL.md and AGENTS.md.
+
+MVP scope only: Telegram `/find-leads`, Trigger task `find-leads`, Tavily + OpenRouter + Drizzle.
+Do not add dashboard, billing, or Phase 8 features without explicit user request.
+Keep webhook handlers thin; run research/LLM/DB in Trigger.dev tasks.
