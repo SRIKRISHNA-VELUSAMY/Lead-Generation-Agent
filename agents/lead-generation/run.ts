@@ -1,16 +1,10 @@
-import { readFileSync } from "fs";
-import { join } from "path";
 import { chatCompletionJson } from "@/lib/ai/openrouter";
+import { AGENT_SKILL_PROMPT } from "@/lib/prompts/agent-skill";
 import { searchCompanies } from "@/tools/tavily-search";
 import { leadsResponseSchema, type Lead } from "@/tools/lead-schema";
 
-let cachedSkill: string | null = null;
-
 export function loadAgentSkill(): string {
-  if (cachedSkill) return cachedSkill;
-  const path = join(process.cwd(), "skills", "agent_skill.md");
-  cachedSkill = readFileSync(path, "utf-8");
-  return cachedSkill;
+  return AGENT_SKILL_PROMPT;
 }
 
 function dedupeLeads(items: Lead[]): Lead[] {
